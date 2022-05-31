@@ -9,14 +9,16 @@ export default class ProductList extends Component {
   }
 
   render() {
+    const { products, onSelect, onAddToCart } = this.props;
     return (
       <div className="row">
-        {this.props.products.map((product) => {
+        {products.map((product) => {
           return (
             <ProductItem
               key={product.id}
               product={product}
-              onSelect={this.props.onSelect}
+              onSelect={onSelect}
+              onAddToCart={onAddToCart}
             />
           );
         })}

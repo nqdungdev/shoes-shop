@@ -7,7 +7,7 @@ class ProductItem extends Component {
     this.state = {};
   }
   render() {
-    const { product, onSelect } = this.props;
+    const { product, onSelect, onAddToCart } = this.props;
     const { name, image, shortDescription, price } = this.props.product;
     return (
       <div className="col-4 my-3">
@@ -20,7 +20,7 @@ class ProductItem extends Component {
             <p className="card-text">{shortDescription}</p>
             <p className="card-text">${price}</p>
           </div>
-          <div className="card-footer">
+          <div className="card-footer d-flex justify-content-between">
             <button
               className="btn btn-danger "
               data-bs-toggle="modal"
@@ -30,6 +30,14 @@ class ProductItem extends Component {
               }}
             >
               Detail
+            </button>
+            <button
+              className="btn btn-dark "
+              onClick={() => {
+                onAddToCart(product);
+              }}
+            >
+              Add to Cart
             </button>
           </div>
         </div>
